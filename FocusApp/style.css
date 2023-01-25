@@ -1,0 +1,217 @@
+*,
+*::before,
+*::after {
+    padding: 0;
+    margin: 0;
+    box-sizing:border-box;
+}
+
+body{
+    height: 100vh;
+    padding: 35px;
+
+    background: #0B0C10;
+    color: #ffffff;
+    font-family: "Software Tester 7";
+}
+
+h1{
+    margin: 15px 0;
+    font-weight: 900;
+    font-size: 50px;
+    text-align: center;
+    font-family: "Gist";
+    color:#66FCF1
+}
+
+h3{
+    font-size: 35px;
+    text-align: center;
+    color:#66FCF1;
+    font-family: "Gist";
+}
+
+input{
+    transition: 0.5s ease-in-out;
+    margin: 15px 0;
+    font-size: 25px;
+    padding: 5px;
+    background: rgb(255, 255, 255);
+    border:#66FCF1;
+}
+
+.btn-group {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 10%;
+    margin: 20px 0;
+  }
+  button {
+    margin: 5px;
+    padding: 10px;
+    border: none;
+    font-size: 18px;
+    transition: 0.5s ease-in-out;
+    font-family: "Software Tester 7";
+  }
+  label {
+    font-size: 25px;
+  }
+
+form{
+    height: 20%;
+    display: flex;
+    flex-direction: column;
+    padding: 0;
+    max-width: 370px;
+    margin: 5px auto;
+}
+
+form button {
+    background:#45A29E;
+    width: 100%;
+    margin: 5px 0;
+    color: white;
+  }
+  .start {
+    background:#45A29E;
+    color: white;
+  }
+  .break {
+    background: rgb(0, 199, 116);
+    color: #000000;
+  }
+  .reset {
+    background: rgb(250, 69, 109);
+    color: #000000;
+  }
+  .pause {
+    background: rgb(253, 143, 17);
+  }
+  .resume {
+    background: rgb(131, 10, 252);
+    color: white;
+  }
+
+.clock{
+    padding: 3px;
+    display: flex;
+    position: relative;
+    justify-content: center;
+    align-items: center;
+    font-weight: bold;
+    /* size controled here!!!!!! */
+    font-size: 30px; 
+    height: 30%;
+}
+
+.progress-ring{
+    position: absolute;
+    top: 50%;
+    left:50%;
+    transform: translate(-50%, -50%);
+}
+
+.progress-ring__circle{
+    transition: 0.5s;
+    transform: rotate(-90deg);
+    transform-origin: 50% 50%;
+    stroke: #66FCF1;
+}
+
+footer {
+    position: fixed;
+    bottom: 4px;
+    text-align: center;
+    width: 80%;
+    margin: 0 auto;
+  }
+
+.danger{
+    stroke: red;
+    animation: pulse 1s ease-in-out infinite;
+    /* pusle at 0.9s */
+}
+/* giving animation to progress ring circle */
+@keyframes pulse{
+    0%,
+    100% {
+        transform: rotate(-90deg) scale(1);
+    }
+    50% {
+        transform: rotate(-90deg) scale(1.05);
+    }
+    75% {
+        transform: rotate(-90deg) scale(0.8);
+    }
+}
+
+ /* Todolist stuff */
+.openToDoList{
+    margin-top: 25px;
+}
+.item-description{
+    padding: 5px;
+    width: 260px;
+    margin-bottom: 10px;
+}
+.item-completed:checked + .item-description{
+    background: #b3b3b3;
+    text-decoration: line-through;
+}
+#add {
+    padding: 8px 14px;
+    margin-top: 13px;
+    font-weight: bold;
+    color: #ffffff;
+    background: #45A29E;
+    cursor: pointer;
+}
+/* End of Todolist styles */
+
+  /* grids */
+
+@media screen and (min-width: 768px) {
+    body {
+      display: grid;
+      grid-template-areas:
+        "head head"
+        "clock form"
+        "btns ji";
+    }
+    .btn-group {
+      grid-area: btns;
+      justify-content: center;
+    }
+    .clock {
+      grid-area: clock;
+      height: 100%;
+    }
+    h1 {
+      grid-area: head;
+  
+      align-self: center;
+    }
+    form {
+      align-self: center;
+      justify-self: center;
+      grid-area: form;
+      width: 50%;
+      justify-content: space-around;
+    }
+    footer {
+      width: 100%;
+    }
+  
+  }
+  
+  @media screen and (max-width: 375px) {
+    form {
+      height: 40%;
+    }
+    footer {
+      position: static;
+    }
+  }
+
